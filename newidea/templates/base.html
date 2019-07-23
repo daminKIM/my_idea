@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="kr">
+
+
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css?family=Poor+Story&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+</script>
+
+
+<style>
+    #footer {
+        position: absolute;
+        bottom: 0%;
+        width: 100%;
+        height: 100px;
+        font-size: 8pt;
+    }
+
+    h1 {
+        font-family: 'Poor Story', cursive;
+    }
+
+    #navbar {
+        font-family: 'Poor Story', cursive;
+        font-size: 18pt;
+    }
+
+    .text {
+        font-family: 'Poor Story', cursive;
+        font-size: 15pt;
+        text-align: center;
+    }
+
+    }
+</style>
+
+</head>
+
+<body>
+
+    <head>
+        <nav id="navbar" class="navbar">
+            <a href="{% url 'home' %}">
+                <> 행돼
+            </a>
+            <ul class="nav nav-pills">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'introduce' %}">우리는 행복해야 돼</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+                        aria-haspopup="true" aria-expanded="false">행동하는 돼지</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#one"> 꿀조합 레시피 </a>
+                        <a class="dropdown-item" href="#two"> 똥조합 레시피 </a>
+                        <a class="dropdown-item" href="#three"> 리뷰 </a>
+                        <div role="separator" class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#four">가까운 매장</a>
+                        <a class="dropdown-item" href="#five">배달은 요기요</a>
+                    </div>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+                        aria-haspopup="true" aria-expanded="false">행운의 돼지</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#one">할인중인 매장</a>
+                        <a class="dropdown-item" href="#two">쿠폰 발급</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+                        aria-haspopup="true" aria-expanded="false">행복한 돼지의 길</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#one">로그인</a>
+                        <a class="dropdown-item" href="#two">로그아웃</a>
+                        <div role="separator" class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#three">회원가입</a>
+                    </div>
+                </li>
+                </li>
+            </ul>
+        </nav>
+
+        </div>
+
+        <div class="container">
+            {% block content %}
+            {% endblock %}
+        </div>
+
+
+        <footer>
+            <div id="footer" style="text-align:center">
+                행돼는 여러분의 feedback을 기다립니다.
+                <br>e-mail : ekals4407@gmail.com
+                <br>회사 위치 : Mountain View, CA US
+                <br>였으면 좋겠당
+                <br>COPYRIGHT가 있었으면 좋겠습니다.
+            </div>
+
+        </footer>
+
+
+
+</body>
+
+</html>
