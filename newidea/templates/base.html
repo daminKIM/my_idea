@@ -41,6 +41,10 @@
         text-align: center;
     }
 
+    .card,
+    .posting {
+        font-family: 'Poor Story', cursive;
+        font-size: 18pt;
     }
 </style>
 
@@ -55,18 +59,18 @@
             </a>
             <ul class="nav nav-pills">
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'introduce' %}">우리는 행복해야 돼</a>
+                    <a class="nav-link" href="{% url 'introduce' %}">우리는 행복해도 돼</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
                         aria-haspopup="true" aria-expanded="false">행동하는 돼지</a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#one"> 꿀조합 레시피 </a>
-                        <a class="dropdown-item" href="#two"> 똥조합 레시피 </a>
+                        <a class="dropdown-item" href="{% url 'post' %}"> 꿀조합 레시피 </a>
+                        <a class="dropdown-item" href="{%url 'posting' %}"> 레시피 적기 </a>
                         <a class="dropdown-item" href="#three"> 리뷰 </a>
                         <div role="separator" class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#four">가까운 매장</a>
-                        <a class="dropdown-item" href="#five">배달은 요기요</a>
+                        <a class="dropdown-item" href="https://www.yogiyo.co.kr">배달은 요기요</a>
                     </div>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"

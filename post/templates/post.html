@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<title>
+    honey post
+</title>
+
+{% for post in posts.all %}
+<div class="gallery">
+    <div class="responsive">
+        <div class="card" style="width: 18rem">
+            <div class="card-body">
+                <h2 class="card-title">{{post.title }}</h2>
+                <h6 class="card-subtitle mb-2 text-muted">{{post.pub_date}}</h6>
+                <p class="card-text">{{post.summary}}</p>
+                <a href="{% url 'detail' post.id %}" class="card-link">본문 보기</a>
+            </div>
+        </div>
+    </div>
+</div>
+{%endfor%}
+
+
+<style>
+    div.gallery {
+
+        margin: 5px;
+
+        float: left;
+
+        width: 300px;
+
+        height: 300px;
+
+    }
+
+    div.desc {
+        padding: 15px;
+        text-align: center;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    .responsive {
+        padding: 0 6px;
+        float: left;
+        width: 24.99999%;
+    }
+
+    @media only screen and (max-width: 700px) {
+        .responsive {
+            width: 49.99999%;
+            margin: 6px 0;
+        }
+    }
+
+    @media only screen and (max-width: 400px) {
+        .responsive {
+            width: 100%;
+        }
+    }
+
+    .clearfix:after {
+        content: "";
+        clear: both;
+    }
+</style>
+
+{%endblock%}

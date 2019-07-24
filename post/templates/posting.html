@@ -1,0 +1,23 @@
+{%extends 'base.html' %}
+
+{% block content %}
+
+<title>
+    posting
+</title>
+
+<form action="{% url 'create' %}">
+    <div class="posting">
+        <br>
+        <br>
+        <br>
+        <h5> 제목 : </h5>
+        <input tuype="text" name="title" class="form-control" placeholder="제목을 입력하세요.">
+        <br>
+        <h5 label for="Textarea">내용 : </h5>
+        <textarea name="body" class="form-control" id="Textarea" rows="8" placeholder="이렇게 먹어보자!""></textarea>
+        <br><br>
+        <button type=" submit" class="btn btn-secondary btn-lg btn-block">등록하기</button>
+    </div>
+</form>
+    {%endblock%}
