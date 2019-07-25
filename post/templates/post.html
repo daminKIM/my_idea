@@ -3,10 +3,10 @@
 {% block content %}
 
 <title>
-    honey post
+    post
 </title>
 
-{% for post in posts.all %}
+{% for post in posts_2 %}
 <div class="gallery">
     <div class="responsive">
         <div class="card" style="width: 18rem">
@@ -20,6 +20,28 @@
     </div>
 </div>
 {%endfor%}
+
+<div class="center">
+    <div class="pagination">
+        {%if posts_2.has_porvious %}
+        <a href="?page=1">첫페이지</a>
+        <a href="?page={{posts_2.previous_page_number}}">이전페이지</a>
+        {%endif%}
+
+        <a href="#">{{posts_2.number}} of {{posts_2.paginator.num_page}}</a>
+
+        {%if posts_2.has_next%}
+        <a href="?page={{posts_2.next_page_number}}">다음페이지</a>
+        <a href="?page={{posts_2.paginator.num.pages}}">마지막페이지</a>
+        {%endif%}
+
+    </div>
+</div>
+
+
+
+
+
 
 
 <style>
@@ -66,6 +88,35 @@
     .clearfix:after {
         content: "";
         clear: both;
+    }
+
+    .center {
+        text-align: center;
+    }
+
+    .pagination {
+        display: inline-block;
+
+    }
+
+    .pagination a {
+        color: black;
+        float: left;
+        padding: 8px 16px;
+        text-decoration: none;
+        transition: background-color .3s;
+        border: 1px solid #ddd;
+        margin: 0 4px;
+    }
+
+    .pagination a.active {
+        background-color: #d6f85a;
+        color: white;
+        border: 1px solid #d6f85a;
+    }
+
+    .pagination a:hover:not(.active) {
+        background-color: #ddd;
     }
 </style>
 

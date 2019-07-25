@@ -2,4 +2,77 @@
 
 {% block content %}
 
+<style>
+    body {
+        background: #ffffff;
+        font-size: 62.5%;
+    }
+
+    .container {
+        padding: 2em;
+    }
+
+    /* GENERAL BUTTON STYLING */
+    button,
+    button::after {
+        -webkit-transition: all 0.3s;
+        -moz-transition: all 0.3s;
+        -o-transition: all 0.3s;
+        transition: all 0.3s;
+    }
+
+    button {
+        background: none;
+        border: 3px solid #d6f85a;
+        border-radius: 5px;
+        color: #d6f85a;
+        display: block;
+        font-size: 1.6em;
+        font-weight: bold;
+        margin: 1em auto;
+        padding: 1em 3em;
+        position: relative;
+        text-transform: uppercase;
+    }
+
+    button::before,
+    button::after {
+        background: #d6f85a;
+        content: '';
+        position: absolute;
+        z-index: -1;
+    }
+
+    button:hover {
+        color: #ffffff;
+    }
+
+    /* BUTTON 1 */
+    .btn-1::after {
+        height: 0;
+        left: 0;
+        top: 0;
+        width: 100%;
+    }
+
+    .btn-1:hover:after {
+        height: 100%;
+    }
+</style>
+
+
+<br>
+<br>
+<br>
+<div class="container_jumbotron">
+    <h1> {{ post.title }} </h1>
+    <p> {{ post.pub_date }} </p>
+    <h2> {{ post.body }} </h2>
+
+
+    <div class="container">
+        <button class="btn-1"><a href="{%url 'post'%}">목록으로</a></button>
+    </div>
+</div>
+
 {%endblock%}
