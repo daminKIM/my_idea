@@ -1,9 +1,10 @@
 {%extends 'base.html' %}
 
 
+
 {% block content %}
 
-
+{% load staticfiles %}
 
 <br>
 <h1>여러분은 누구보다 행복하게 먹어도 됩니다!</h1>
@@ -16,13 +17,16 @@
     </ol>
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img src="..." class="d-block w-100" alt="...">
+            <img src="{% static '브랜드 로고1.png' %}" width="175" height="500" class="d-block w-100" alt="브랜드로고1">
         </div>
         <div class="carousel-item">
-            <img src="..." class="d-block w-100" alt="...">
+            <img src="{% static '브랜드 로고2.jpg'%}" width="175" height="500" class="d-block w-100" alt="브랜드 로고2">
         </div>
         <div class="carousel-item">
-            <img src="..." class="d-block w-100" alt="...">
+            <img src="{% static '브랜드 로고3.jpg'%}" width="175" height="500" class="d-block w-100" alt="브랜드 로고3">
+        </div>
+        <div class="carousel-item">
+            <img src="{% static '브랜드 로고4.jpg'%}" width="175" height="500" class="d-block w-100" alt="브랜드 로고4">
         </div>
     </div>
     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">

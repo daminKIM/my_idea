@@ -18,6 +18,14 @@
 
 
 <style>
+    body {
+        background: #fdff6c;
+        /* fallback for old browsers */
+
+        font-family: 'Poor Story', cursive, sans-serif -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
     #footer {
         position: absolute;
         bottom: 0%;
@@ -49,7 +57,8 @@
         font-size: 18pt;
     }
 </style>
-
+{% block exstyle %}
+{%endblock%}
 </head>
 
 <body>
@@ -64,15 +73,15 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'introduce' %}">우리는 행복해도 돼</a>
                 </li>
+                {% if user.is_authenticated %}
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
                         aria-haspopup="true" aria-expanded="false">행동하는 돼지</a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="{% url 'post' %}"> 꿀조합 레시피 </a>
                         <a class="dropdown-item" href="{%url 'posting' %}"> 레시피 적기 </a>
-                        <a class="dropdown-item" href="#three"> 리뷰 </a>
                         <div role="separator" class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#four">가까운 매장</a>
+                        <a class="dropdown-item" href="{%url 'map'%}">가까운 매장</a>
                         <a class="dropdown-item" href="https://www.yogiyo.co.kr">배달은 요기요</a>
                     </div>
                 <li class="nav-item dropdown">
@@ -83,38 +92,67 @@
                         <a class="dropdown-item" href="#two">쿠폰 발급</a>
                     </div>
                 </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+                        aria-haspopup="true" aria-expanded="false">행돼&nbsp;{{ user.username }}님!</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="javascript:{document.getElementById('logout').submit()}">
+                            <form id="logout" method="POST" action="{% url 'logout' %}">로그아웃
+                                {% csrf_token %} <input type="hidden" />
+                            </form>
+                        </a>
+                    </div>
+                </li>
+                {% else %}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+                        aria-haspopup="true" aria-expanded="false">행동하는 돼지</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="{% url 'post' %}"> 꿀조합 레시피 </a>
+                        <a class="dropdown-item" href="{%url 'posting' %}"></a>
+                        <div role="separator" class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#four">가까운 매장</a>
+                        <a class="dropdown-item" href="https://www.yogiyo.co.kr">배달은 요기요</a>
+                    </div>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+                        aria-haspopup="true" aria-expanded="false">행운의 돼지</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="{% url 'login' %}">할인중인 매장</a>
+                        <a class="dropdown-item" href="{% url 'login' %}">쿠폰 발급</a>
+                    </div>
+                </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
                         aria-haspopup="true" aria-expanded="false">행복한 돼지의 길</a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#one">로그인</a>
-                        <a class="dropdown-item" href="#two">로그아웃</a>
+                        <a class="dropdown-item" href="{% url 'login' %}">로그인</a>
                         <div role="separator" class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#three">회원가입</a>
+                        <a class="dropdown-item" href="{% url 'signup' %}">회원가입</a>
                     </div>
                 </li>
-                </li>
+                {% endif %}
             </ul>
         </nav>
+    </head>
 
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+
+    <footer>
+        <div id="footer" style="text-align:center">
+            행돼는 여러분의 feedback을 기다립니다.
+            <br>e-mail : ekals4407@gmail.com
+            <br>회사 위치 : Mountain View, CA US
+            <br>였으면 좋겠당
+            <br>COPYRIGHT가 있었으면 좋겠습니다.
         </div>
 
-        <div class="container">
-            {% block content %}
-            {% endblock %}
-        </div>
-
-
-        <footer>
-            <div id="footer" style="text-align:center">
-                행돼는 여러분의 feedback을 기다립니다.
-                <br>e-mail : ekals4407@gmail.com
-                <br>회사 위치 : Mountain View, CA US
-                <br>였으면 좋겠당
-                <br>COPYRIGHT가 있었으면 좋겠습니다.
-            </div>
-
-        </footer>
+    </footer>
 
 
 

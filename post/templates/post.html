@@ -1,48 +1,9 @@
 {% extends 'base.html' %}
 
-{% block content %}
-
-<title>
-    post
-</title>
-
-{% for post in posts_2 %}
-<div class="gallery">
-    <div class="responsive">
-        <div class="card" style="width: 18rem">
-            <div class="card-body">
-                <h2 class="card-title">{{post.title }}</h2>
-                <h6 class="card-subtitle mb-2 text-muted">{{post.pub_date}}</h6>
-                <p class="card-text">{{post.summary}}</p>
-                <a href="{% url 'detail' post.id %}" class="card-link">본문 보기</a>
-            </div>
-        </div>
-    </div>
-</div>
-{%endfor%}
-
-<div class="center">
-    <div class="pagination">
-        {%if posts_2.has_porvious %}
-        <a href="?page=1">첫페이지</a>
-        <a href="?page={{posts_2.previous_page_number}}">이전페이지</a>
-        {%endif%}
-
-        <a href="#">{{posts_2.number}} of {{posts_2.paginator.num_page}}</a>
-
-        {%if posts_2.has_next%}
-        <a href="?page={{posts_2.next_page_number}}">다음페이지</a>
-        <a href="?page={{posts_2.paginator.num.pages}}">마지막페이지</a>
-        {%endif%}
-
-    </div>
-</div>
 
 
 
-
-
-
+{% block exstyle %}
 
 <style>
     div.gallery {
@@ -119,5 +80,57 @@
         background-color: #ddd;
     }
 </style>
+
+
+
+
+
+
+{%endblock%}
+
+
+
+{% block content %}
+
+<title>
+    post
+</title>
+
+{% for post in posts_2 %}
+<div class="gallery">
+    <div class="responsive">
+        <div class="card" style="width: 18rem">
+            <div class="card-body">
+                <h2 class="card-title">{{post.title }}</h2>
+                <h6 class="card-subtitle mb-2 text-muted">{{post.pub_date}}</h6>
+                <p class="card-text">{{post.summary}}</p>
+                <a href="{% url 'detail' post.id %}" class="card-link">본문 보기</a>
+            </div>
+        </div>
+    </div>
+</div>
+{%endfor%}
+
+<div class="center">
+    <div class="pagination">
+        {%if posts_2.has_porvious %}
+        <a href="?page=1">첫페이지</a>
+        <a href="?page={{posts_2.previous_page_number}}">이전페이지</a>
+        {%endif%}
+
+        <a href="#">{{posts_2.number}} of {{posts_2.paginator.num_page}}</a>
+
+        {%if posts_2.has_next%}
+        <a href="?page={{posts_2.next_page_number}}">다음페이지</a>
+        <a href="?page={{posts_2.paginator.num.pages}}">마지막페이지</a>
+        {%endif%}
+
+    </div>
+</div>
+
+
+
+
+
 
 {%endblock%}
