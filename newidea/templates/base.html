@@ -70,8 +70,7 @@
 
     <head>
         <nav id="navbar" class="navbar">
-            <img src="#" alt=""><a href="{% url 'home' %}">
-                <> 행돼
+            <a href="{% url 'home' %}"><img src="{% static 'logogo.png'%}" width="150" height="40" alt="logo">
             </a>
             <ul class="nav nav-pills">
                 <li class="nav-item">
@@ -92,8 +91,8 @@
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
                         aria-haspopup="true" aria-expanded="false">행운의 돼지</a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#one">할인중인 매장</a>
-                        <a class="dropdown-item" href="#two">쿠폰 발급</a>
+                        <a class="dropdown-item" href="{%url 'coupon' %}">할인중인 매장</a>
+                        <a class="dropdown-item" href="{%url 'coupon' %}">쿠폰 발급</a>
                     </div>
                 </li>
 

@@ -6,3 +6,6 @@ def home(request) :
 
 def introduce(request) :
     return render (request, 'introduce.html')
+
+def coupon(request) :
+    return render (request, 'coupon.html')
